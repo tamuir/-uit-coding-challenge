@@ -1,0 +1,26 @@
+{
+    "name": "alpha-vantage-api",
+    "version": "1.0.0",
+    "description": "REST API for fetching stock data from the Alpha Vantage API",
+    "main": "server.js",
+    "dependencies": {
+        "axios": "^0.24.0",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.2",
+        "express-rate-limit": "^6.7.0",
+        "node-cache": "^5.1.2"
+    },
+    "scripts": {
+        "dev": "nodemon server.js"
+    },
+    "author": "Taimoor khan",
+    "license": "MIT",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "private": true,
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}

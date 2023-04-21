@@ -1,0 +1,9 @@
+# Node.js build artifacts
+node_modules/
+npm-debug.log
+
+# Environment variables
+.env
+
+# Visual Studio Code settings
+.vscode/

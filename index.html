@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stock Prices</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+	<canvas id="myChart"></canvas>
+
+	<script>
+		fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=AAPL&apikey=32HQRE93BM71W2U5')
+			.then(response => response.json())
+			.then(data => {
+				const dates = Object.keys(data['Time Series (Daily)']);
+				const prices = Object.values(data['Time Series (Daily)']).map(item => parseFloat(item['4. close']));
+
+				const ctx = document.getElementById('myChart').getContext('2d');
+				const chart = new Chart(ctx, {
+					type: 'line',
+					data: {
+						labels: dates.reverse(),
+						datasets: [{
+							label: 'Stock Prices',
+							data: prices.reverse(),
+							fill: false,
+							borderColor: 'rgb(75, 192, 192)',
+							lineTension: 0.1
+						}]
+					},
+					options: {
+                        
+                    }
+				});
+			});
+	</script>
+</body>
+</html>
