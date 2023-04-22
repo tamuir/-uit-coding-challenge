@@ -12,7 +12,6 @@ require('dotenv').config();
 
 const API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 
-
 function getDataFromAPI(symbol) {
   const priceUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${API_KEY}`;
   const metaUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${API_KEY}`;
@@ -59,7 +58,7 @@ function getDataFromCache(symbol) {
 // set up rate limiting middleware
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 3, // limit each IP to 5 requests per minute
+  max: 3, // limit each IP to 3 requests per minute
   message: 'Too many requests from this IP, please try again in a minute',
 
   skip: (req) => {
